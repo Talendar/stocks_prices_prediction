@@ -1,2 +1,2 @@
-# stocks_prices_prediction
+# Stocks Prices Prediction
 Forecasting of stocks prices with deep learning.
