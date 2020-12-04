@@ -1,2 +1,2 @@
 # Stocks Prices Prediction
-Forecasting of stocks prices with deep learning.
+Forecasting stocks prices with deep learning.
