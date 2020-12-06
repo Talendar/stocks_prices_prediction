@@ -4,6 +4,7 @@
 """
 
 import numpy as np
+from tf.keras.preprocessing import timeseries_dataset_from_array
 
 
 class StocksData:
@@ -94,7 +95,7 @@ class StocksData:
         return params
 
     def _make_ds(self, data, norm_data):
-        return tf.keras.preprocessing.timeseries_dataset_from_array(
+        return timeseries_dataset_from_array(
             data=data["features"] if norm_data["features"] is None 
                                   else norm_data["features"],
             targets=data["labels"] if norm_data["labels"] is None
