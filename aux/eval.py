@@ -91,7 +91,7 @@ def eval(model, data, set_name):
                            "mape": mape(labels, predictions),
                            "mse": mse(labels, predictions)} }
 
-    for col in denorm_labels.columns:
+    for col in labels.columns:
         results[col] = {"mae":  mae(labels[col], predictions[col]),
                         "mape": mape(labels[col], predictions[col]),
                         "mse":  mse(labels[col], predictions[col])}
