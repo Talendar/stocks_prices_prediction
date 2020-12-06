@@ -3,6 +3,8 @@
 @author: Gabriel Nogueira (Talendar)
 """
 
+import numpy as np
+
 
 class StocksData:
     def __init__(self,
