@@ -4,7 +4,7 @@
 """
 
 import numpy as np
-from tf.keras.preprocessing import timeseries_dataset_from_array
+from tensorflow.keras.preprocessing import timeseries_dataset_from_array
 
 
 class StocksData:
