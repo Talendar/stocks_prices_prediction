@@ -5,6 +5,7 @@
 
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 mape = tf.keras.metrics.MeanAbsolutePercentageError()
