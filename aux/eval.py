@@ -87,13 +87,13 @@ def eval(model, data, set_name):
         predictions = data.denormalize_labels(predictions)
 
     # results
-    results = {"general": {"mae": mae(denorm_labels, predictions),
-                           "mape": mape(denorm_labels, predictions),
-                           "mse": mse(denorm_labels, predictions)} }
+    results = {"general": {"mae": mae(labels, predictions),
+                           "mape": mape(labels, predictions),
+                           "mse": mse(labels, predictions)} }
 
     for col in denorm_labels.columns:
-        results[col] = {"mae":  mae(denorm_labels[col], predictions[col]),
-                        "mape": mape(denorm_labels[col], predictions[col]),
-                        "mse":  mse(denorm_labels[col], predictions[col])}
+        results[col] = {"mae":  mae(labels[col], predictions[col]),
+                        "mape": mape(labels[col], predictions[col]),
+                        "mse":  mse(labels[col], predictions[col])}
 
     return predictions, results
