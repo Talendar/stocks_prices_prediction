@@ -36,11 +36,11 @@ class StocksData:
         self.norm_test = {"features": None, "labels": None}
 
         if feature_normalization is not None:
-            norm_f, self.denormalize_features = feature_normalization
+            norm_f, self._denorm_features = feature_normalization
             self._norm_features_params = self._normalization(norm_f, "features")
 
         if label_normalization is not None:
-            norm_f, self.denormalize_labels = label_normalization
+            norm_f, self._denorm_labels = label_normalization
             self._norm_labels_params = self._normalization(norm_f, "labels")
 
         # datasets
@@ -56,6 +56,12 @@ class StocksData:
 
     def dataset(self, set_name):
         return getattr(self, set_name + "_ds")
+    
+    def denormalize_features(self, features):
+        return self._denorm_features(features, *self._norm_features_params)
+    
+    def denormalize_labels(self, labels):
+        return self._denorm_labels(labels, *self._norm_labels_params)
 
     def _split_data(self, pc):
         assert np.sum(pc) == 1, "Data split percentage sum must be 1 (100%)!"
