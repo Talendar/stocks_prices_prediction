@@ -17,7 +17,7 @@ class StocksData:
         self._labels_names = labels_names
 
         # cleaning
-        if "symbol" in data.index.names:
+        if "symbol" in self.raw.index.names:
             self.raw.reset_index("symbol", inplace=True, drop=True)
 
         if "adjclose" in self.raw.columns:
