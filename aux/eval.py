@@ -104,12 +104,18 @@ def eval(model, data, set_name):
     return predictions, results
 
 
+def pd2float(p):
+    try: p = p.values
+    except AttributeError: pass
+    return p
+
+
 def tendency_accuracy(labels, predictions):
     labels = labels.loc[predictions.index]
     hits = 0
     for i in range(1, len(predictions)):
-        l_past = labels.iloc[i - 1]
-        l, p = labels.iloc[i], predictions.iloc[i]
+        l_past = pd2float(labels.iloc[i - 1])
+        l, p = pd2float(labels.iloc[i]), pd2float(predictions.iloc[i])
 
         # prices went up
         if l > l_past:
@@ -118,7 +124,7 @@ def tendency_accuracy(labels, predictions):
                 hits += 1
             # false negative
             else:
-                pass
+                pass # todo
         # prices went down / stayed the same
         else:
             # true negative
@@ -126,6 +132,7 @@ def tendency_accuracy(labels, predictions):
                 hits += 1
             # false positive
             else:
-                pass
+                pass # todo
 
     return hits / (len(predictions) - 1)
+
