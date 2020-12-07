@@ -99,7 +99,7 @@ def eval(model, data, set_name):
         results[col] = {"mae":  mae(labels[col], predictions[col]),
                         "mape": mape(labels[col], predictions[col]),
                         "mse":  mse(labels[col], predictions[col]),
-                        "tend_acc": tendency_accuracy(labels, predictions)} }
+                        "tend_acc": tendency_accuracy(labels, predictions)}
 
     return predictions, results
 
