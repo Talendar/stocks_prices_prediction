@@ -72,10 +72,12 @@ def eval_print(results):
             f"\n[> {col.upper()} <]\n" +
             f"   . MAE:  {results[col]['mae'] : .0f}\n" +
             f"   . MAPE: {results[col]['mape'] : .4f}%\n"
-            f"   . MSE:  {results[col]['mse'] : .0f}\n" + 
-            f"   . Tendency Accuracy: {results[col]['tend_acc'] : .4f}%\n"
-            "\n" + "#" * 25
+            f"   . MSE:  {results[col]['mse'] : .0f}"
         )
+        
+        if "tend_acc" in results[col]:
+            print(f"   . Tendency Accuracy: {results[col]['tend_acc'] : .4f}%")
+        print("#"*25)
 
 
 def eval(model, data, set_name):
