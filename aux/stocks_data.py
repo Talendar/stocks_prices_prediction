@@ -66,14 +66,16 @@ class StocksData:
     def _split_data(self, pc):
         assert np.sum(pc) == 1, "Data split percentage sum must be 1 (100%)!"
         n = len(self.raw)
-
+        i_trn = int(n*pc[0])
+        i_val = i_trn + int(n*pc[1])
+        
         # splitting
         train_data, train_labels = self._features_and_labels(
-            self.raw[:int(n*pc[0])])
+            self.raw[:i_trn])
         val_data, val_labels = self._features_and_labels(
-            self.raw[int(n*pc[0]) : int(n * (pc[0] + pc[1]))])
+            self.raw[(i_trn - self._num_sessions) : i_val])
         test_data, test_labels = self._features_and_labels(
-            self.raw[int(n * (pc[0] + pc[1])):])
+            self.raw[(i_val - self.num_sessions):)])
 
         # asserting labels
         self._assert_labels(train_data, train_labels)
