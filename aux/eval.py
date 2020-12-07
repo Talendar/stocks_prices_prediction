@@ -73,6 +73,7 @@ def eval_print(results):
             f"   . MAE:  {results[col]['mae'] : .0f}\n" +
             f"   . MAPE: {results[col]['mape'] : .4f}%\n"
             f"   . MSE:  {results[col]['mse'] : .0f}\n" + 
+            f"   . Tendency Accuracy: {results[col]['tend_ac'] : .4f}%\n"
             "\n" + "#" * 25
         )
 
@@ -91,17 +92,19 @@ def eval(model, data, set_name):
     # results
     results = {"general": {"mae": mae(labels, predictions),
                            "mape": mape(labels, predictions),
-                           "mse": mse(labels, predictions)} }
+                           "mse": mse(labels, predictions),
+                           "tend_acc": tendency_accuracy(labels, predictions)} }
 
     for col in labels.columns:
         results[col] = {"mae":  mae(labels[col], predictions[col]),
                         "mape": mape(labels[col], predictions[col]),
-                        "mse":  mse(labels[col], predictions[col])}
+                        "mse":  mse(labels[col], predictions[col]),
+                        "tend_acc": tendency_accuracy(labels, predictions)} }
 
     return predictions, results
 
 
-def tendency_accuracy(predictions, labels):
+def tendency_accuracy(labels, predictions):
     labels = labels.loc[predictions.index]
     hits = 0
     for i in range(1, len(predictions)):
