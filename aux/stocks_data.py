@@ -26,8 +26,8 @@ class StocksData:
         if "adjclose" in self.raw.columns:
             self.raw.drop("adjclose", axis=1, inplace=True)
             
-        if "split" in self.raw.columns:
-            self.raw.drop("split", axis=1, inplace=True)
+        if "splits" in self.raw.columns:
+            self.raw.drop("splits", axis=1, inplace=True)
 
         # splitting
         self.raw_train = self.raw_val = self.raw_test = None
