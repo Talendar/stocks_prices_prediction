@@ -76,7 +76,7 @@ def eval_print(results):
         )
         
         if "tend_acc" in results[col]:
-            print(f"   . Tendency Accuracy: {results[col]['tend_acc'] : .4f}%")
+            print(f"   . Tendency Accuracy: {100*results[col]['tend_acc'] : .4f}%")
         print("\n#"*25)
 
 
