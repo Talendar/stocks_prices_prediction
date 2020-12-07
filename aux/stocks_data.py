@@ -75,7 +75,7 @@ class StocksData:
         val_data, val_labels = self._features_and_labels(
             self.raw[(i_trn - self._num_sessions) : i_val])
         test_data, test_labels = self._features_and_labels(
-            self.raw[(i_val - self.num_sessions):])
+            self.raw[(i_val - self._num_sessions):])
 
         # asserting labels
         self._assert_labels(train_data, train_labels)
