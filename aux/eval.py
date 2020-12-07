@@ -99,3 +99,30 @@ def eval(model, data, set_name):
                         "mse":  mse(labels[col], predictions[col])}
 
     return predictions, results
+
+
+def tendency_accuracy(predictions, labels):
+    labels = labels.loc[predictions.index]
+    hits = 0
+    for i in range(1, len(predictions)):
+        l_past = labels.iloc[i - 1]
+        l, p = labels.iloc[i], predictions.iloc[i]
+
+        # prices went up
+        if l > l_past:
+            # true positive
+            if p > l_past:
+                hits += 1
+            # false negative
+            else:
+                pass
+        # prices went down / stayed the same
+        else:
+            # true negative
+            if p <= l_past:
+                hits += 1
+            # false positive
+            else:
+                pass
+
+    return hits / (len(predictions) - 1)
