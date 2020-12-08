@@ -80,7 +80,7 @@ def eval_print(results):
         print("\n" + "#"*25)
 
 
-def eval(model, data, set_name):
+def eval(model, data, set_name, denorm_predictions=True):
     # predictions
     predictions = model.predict(data.dataset(set_name))
     labels = data.raw_data(set_name)["labels"][:len(predictions)]
@@ -88,7 +88,7 @@ def eval(model, data, set_name):
                                index=labels.index,
                                columns=labels.columns)
     
-    if data.denormalize_labels is not None:
+    if denorm_predictions:
         predictions = data.denormalize_labels(predictions)
 
     # results
