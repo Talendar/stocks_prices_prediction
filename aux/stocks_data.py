@@ -14,10 +14,12 @@ class StocksData:
                  labels_names,
                  feature_normalization=None,  # tuple: (norm_func, denorm_func)
                  label_normalization=None,  # tuple: (norm_func, denorm_func)
-                 data_split_pc=(.8, .12, .08)):
+                 data_split_pc=(.8, .12, .08),
+                 batch_size=32):
         self.raw = data_df
         self._num_sessions = num_sessions
         self._labels_names = labels_names
+        self._batch_size = batch_size
 
         # cleaning
         if "symbol" in self.raw.index.names:
@@ -114,6 +116,6 @@ class StocksData:
             sequence_length=self._num_sessions,
             sequence_stride=1,
             shuffle=False,
-            batch_size=32)
+            batch_size=self._batch_size)
         
 
