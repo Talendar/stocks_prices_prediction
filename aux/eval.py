@@ -68,7 +68,7 @@ def eval_print(results):
         print(
             f"\n[> {col.upper()} <]\n" +
             f"   . MAE:  {results[col]['mae'] : .0f}\n" +
-            f"   . MAPE: {results[col]['mape'] : .4f}%\n"
+            f"   . MAPE: {100*results[col]['mape'] : .4f}%\n"
             f"   . MSE:  {results[col]['mse'] : .0f}"
         )
         
