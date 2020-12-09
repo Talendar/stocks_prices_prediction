@@ -3,6 +3,7 @@
 @author: Gabriel Nogueira (Talendar)
 """
 
+import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing import timeseries_dataset_from_array
 
