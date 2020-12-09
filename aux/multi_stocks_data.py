@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-from stocks_price_prediction.aux.stocks_data import StocksData
+from stocks_data import StocksData
 
 
 class MultiStocksDataset:
