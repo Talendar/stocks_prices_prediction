@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing import timeseries_dataset_from_array
 
 
 class StocksData:
-    """ Handles the dataset of a single stock. """
+    """ Handles a dataset with a single stock (symbol). """
     def __init__(self,
                  data_df,
                  num_sessions,
