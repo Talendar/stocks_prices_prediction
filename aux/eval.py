@@ -5,14 +5,11 @@
 
 import numpy as np
 import pandas as pd
-
-import tensorflow as tf
 import matplotlib.pyplot as plt
 
-
-mape = tf.keras.metrics.MeanAbsolutePercentageError()
-mae = tf.keras.metrics.MeanAbsoluteError()
-mse = tf.keras.metrics.MeanSquaredError()
+from sklearn.metrics import mean_absolute_error as mae, \
+                            mean_absolute_percentage_error as mape, \
+                            mean_squared_error as mse
 
 
 def eval_plot(predictions, labels, start_date, plot_samples, title):
