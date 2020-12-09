@@ -22,9 +22,6 @@ class StocksData:
         self._batch_size = batch_size
 
         # cleaning
-        if "symbol" in self.raw.index.names:
-            self.raw.reset_index("symbol", inplace=True, drop=True)
-
         if "adjclose" in self.raw.columns:
             self.raw.drop("adjclose", axis=1, inplace=True)
             
