@@ -1,3 +1,5 @@
+import pandas as pd
+
 
 def sma(data, n, nans=-1):
     """ Computes the simple MA for each row of the input. 
