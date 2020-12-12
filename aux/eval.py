@@ -12,7 +12,7 @@ from sklearn.metrics import mean_absolute_error as mae, \
                             mean_squared_error as mse
 
 
-def eval_plot(predictions, labels, start_date, plot_samples, title):
+def eval_plot(predictions, labels, start_date, plot_samples, title, figsize=(18, 9)):
     if len(labels) != len(predictions):
         labels = labels[:len(predictions)]
 
@@ -25,7 +25,7 @@ def eval_plot(predictions, labels, start_date, plot_samples, title):
     predictions, labels = predictions[sl], labels[sl]
 
     # plotting
-    fig = plt.figure(figsize=(18, 9))
+    fig = plt.figure(figsize=figsize)
     fig.subplots_adjust(top=2.6)
     fig.suptitle(title, fontsize=22, color="#E0E0E0", x=0.52, y=2.76)
 
