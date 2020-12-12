@@ -69,7 +69,7 @@ def eval_print(results):
             f"\n[> {col.upper()} <]\n" +
             f"   . MAE:  {results[col]['mae'] : .2f}\n" +
             f"   . MAPE: {100*results[col]['mape'] : .4f}%\n"
-            f"   . MSE:  {results[col]['mse'] : .2f}"
+            f"   . MSE:  {results[col]['mse'] : .4f}"
         )
         
         if "tend_acc" in results[col]:
