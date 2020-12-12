@@ -155,7 +155,7 @@ class MultiStocksDataset:
             "test": np.sum( [len(sd.raw_test["features"]) for n, sd in self.stocks] ), 
         }
         
-        num_features = len(stocks.values()[0])
+        num_features = len(list(stocks.values())[0])
         self._out_sign = (
             tf.TensorSpec(shape=(None, self._num_sessions, num_features), dtype=tf.float64),
             tf.TensorSpec(shape=(None, len(labels_names)), dtype=tf.float64),
